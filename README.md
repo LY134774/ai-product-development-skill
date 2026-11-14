@@ -1,8 +1,10 @@
-# AI Product Builder · 产品开发教练
+# AI 产品开发工作流
 
 `product-development-coach` 是面向个人开发者、小团队和编程新手的中文 Agent Skill：从一个想法开始，讨论需求、缩小 MVP、确认技术方案，再逐项开发、验证、交接、审计和运营。
 
 它是一套工作方法和文档模板，不是可直接运行的网站，也不会替你自动购买云服务或自动上线。
+
+当前主分支包含名称调整、模式衔接、专项检查细节、模板与验证脚本的后续优化，尚未为这些更新创建新版 Release。`v1.0.0` 标签保留首发内容；获取本轮优化请选择主分支。英文调用名暂保留，避免改变现有安装路径。
 
 ## 什么时候用
 
@@ -31,15 +33,17 @@
 在支持 Skill Installer 的 Codex 聊天中发送以下指令（这是聊天指令，不是终端命令）：
 
 ```text
-$skill-installer install https://github.com/LY134774/ai-product-development-skill/tree/v1.0.0/skills/product-development-coach
+$skill-installer install https://github.com/LY134774/ai-product-development-skill/tree/main/skills/product-development-coach
 ```
 
 也可以请 Codex：“从上面的 GitHub 地址安装 product-development-coach”。安装前先审阅文件。无需配置第三方 API、MCP 或密钥。具体发现位置以 [OpenAI 官方说明](https://learn.chatgpt.com/docs/build-skills) 为准。
 
-已安装 Git 的用户可以在一个尚不存在的目标目录克隆固定版本：
+以上地址安装主分支最新内容，主分支会继续变化；需要固定本次内容时可将 `main` 替换成目标提交 SHA。需要首发版本时使用 `v1.0.0`，该标签不包含后续优化。
+
+已安装 Git 的用户可以在一个尚不存在的目标目录下载主分支：
 
 ```bash
-git clone --branch v1.0.0 --depth 1 https://github.com/LY134774/ai-product-development-skill.git
+git clone --branch main --depth 1 https://github.com/LY134774/ai-product-development-skill.git
 ```
 
 然后把 `skills/product-development-coach` 整个文件夹放到宿主支持的 skills 目录。例如 Codex 当前支持用户级 `~/.agents/skills/` 和项目级 `.agents/skills/`。目标同名文件夹已经存在时先比较，不能直接覆盖。此命令只下载，不自动安装。未出现时按宿主说明刷新或重启。
@@ -48,13 +52,25 @@ git clone --branch v1.0.0 --depth 1 https://github.com/LY134774/ai-product-devel
 
 - [SKILL.md](skills/product-development-coach/SKILL.md)：使用时机、路由、共同规则。
 - [references](skills/product-development-coach/references)：每个阶段的输入、步骤、产出、验收与停止条件。
-- [templates](skills/product-development-coach/templates)：填写到实际项目的模板，按需复制，不自动全部创建。
+- [templates](skills/product-development-coach/templates)：获准初始化项目时交付五份核心文档，已有文件按确认差异补充；SEO、统计、审计与运维模板按适用阶段选择，小修复不补整套。
 - [使用示例](skills/product-development-coach/references/examples.md)：常见对话与阶段切换。
 - [需求覆盖表](docs/REQUIREMENTS.md)：本版包含的需求和对应文件。
 - [验证说明](docs/VALIDATION.md)：检查方法、证据范围和限制。
 - [官方资料入口](skills/product-development-coach/references/sources.md)：查最新规范、接口、价格和平台政策时使用。
 
 采用标准 `SKILL.md` 入口；`agents/openai.yaml` 是 Codex 的补充元数据。其他支持 Agent Skills 的工具可以读取通用入口，但自动调用、审批和文档规则加载方式由各宿主决定。本仓库未逐一验证所有宿主。
+
+## 怎样检查这份 Skill
+
+已有 Python 3.9 或更新版本时，在仓库根目录运行，无需安装依赖：
+
+```bash
+python -B scripts/validate.py
+python -B -O scripts/validate.py
+python -B scripts/test_validate.py
+```
+
+前两条核对文件和格式，最后一条在临时副本故意制造错误，检查验证器是否能拦住。内容覆盖及三类人工场景核对见[验证说明](docs/VALIDATION.md)；这些检查不等于安装后的自动触发或真实产品测试。
 
 ## 工作边界
 
