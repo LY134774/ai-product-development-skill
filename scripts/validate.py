@@ -92,7 +92,8 @@ def validate(root):
     files = [p for p in root.rglob('*') if p.is_file()
              and not {'.git', '__pycache__'}.intersection(p.relative_to(root).parts)]
     for path in files:
-        require(path.suffix in ('.md', '.yaml', '.py') or path.name == 'LICENSE',
+        require(path.suffix in ('.md', '.yaml', '.py') or path.name == 'LICENSE'
+                or path.relative_to(root).as_posix() == 'evals/cases.json',
                 f'Unexpected file type: {path.relative_to(root)}')
         text = path.read_text(encoding='utf-8')
         require(not text.startswith('\ufeff'), f'Unexpected BOM: {path.relative_to(root)}')
