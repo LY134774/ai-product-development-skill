@@ -1,4 +1,4 @@
-name: Publish validated v1.2.0 release
+name: Publish validated v1.3.0 release
 on:
   push:
     branches: [main]
@@ -9,7 +9,7 @@ permissions:
 
 jobs:
   publish:
-    if: "github.ref == 'refs/heads/main' && startsWith(github.event.head_commit.message, 'release: v1.2.0')"
+    if: "github.ref == 'refs/heads/main' && startsWith(github.event.head_commit.message, 'release: v1.3.0')"
     runs-on: ubuntu-latest
     timeout-minutes: 10
     permissions:
@@ -33,11 +33,11 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          if gh release view v1.2.0 >/dev/null 2>&1; then
-            echo 'v1.2.0 release already exists; refusing to rewrite it.'
+          if gh release view v1.3.0 >/dev/null 2>&1; then
+            echo 'v1.3.0 release already exists; refusing to rewrite it.'
             exit 0
           fi
-          gh release create v1.2.0 \
+          gh release create v1.3.0 \
             --target "${GITHUB_SHA}" \
-            --title "v1.2.0 · 可靠性与开源协作增强" \
-            --notes-file docs/RELEASE_NOTES_v1.2.0.md
+            --title "v1.3.0 · 智能启动与 SEO/GEO 前置规划" \
+            --notes-file docs/RELEASE_NOTES_v1.3.0.md
