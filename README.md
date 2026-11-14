@@ -44,7 +44,7 @@ $skill-installer install https://github.com/LY134774/ai-product-development-skil
 
 也可以请 Codex：“从上面的 GitHub 地址安装 product-development-coach”。安装前先审阅文件。无需配置第三方 API、MCP 或密钥。具体发现位置以 [OpenAI 官方说明](https://learn.chatgpt.com/docs/build-skills) 为准。
 
-以上地址固定安装 `v1.2.0`。需要后续开发内容时可选择 `main`；主分支会继续变化。历史版本 `v1.1.0` 和 `v1.0.0` 保留不变。
+以上地址固定安装 `v1.3.0`。需要后续开发内容时可选择 `main`；主分支会继续变化。历史版本 `v1.2.0`、`v1.1.0` 和 `v1.0.0` 保留不变。
 
 已安装 Git 的用户可以在一个尚不存在的目标目录下载本版：
 
@@ -95,4 +95,4 @@ python -B scripts/test_validate.py
 
 ## 语言与许可
 
-v1.2.0 以中文为主，提供 [English quick start](README.en.md)；详细参考指南仍以中文为准。按 [MIT](LICENSE) 许可开源；可复制的 Skill 文件夹内也包含许可证。
+v1.3.0 以中文为主，提供 [English quick start](README.en.md)；详细参考指南仍以中文为准。按 [MIT](LICENSE) 许可开源；可复制的 Skill 文件夹内也包含许可证。
