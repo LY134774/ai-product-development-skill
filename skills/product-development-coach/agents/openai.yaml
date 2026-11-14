@@ -1,6 +1,6 @@
 interface:
-  display_name: "AI Product Builder ��Ʒ��������"
-  short_description: "������� MVP ����������Ŀ���ӡ������������Ӫ���������ķֽ׶ν���"
-  default_prompt: "��ʹ�� $product-development-coach �ж��ҵ�ǰ�Ĳ�Ʒ�׶Σ�������������������֤�Ľ����"
+  display_name: "AI Product Builder 产品开发教练"
+  short_description: "从需求和 MVP 到开发、项目交接、上线审计与运营增长的中文分阶段教练"
+  default_prompt: "请使用 $product-development-coach 判断我当前的产品阶段，按需引导并交付可验证的结果。"
 policy:
   allow_implicit_invocation: true
