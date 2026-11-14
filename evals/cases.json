@@ -1,0 +1,139 @@
+{
+  "schema_version": 1,
+  "purpose": "静态路由与行为契约测试语料；不等于真实 Agent / Codex 执行测试",
+  "cases": [
+    {
+      "id": "new_product",
+      "input": "我想做一个新的 AI 笔记产品，先聊聊需求。",
+      "route": "references/discovery.md",
+      "should": [
+        "先确认目标用户与痛点",
+        "不在首次讨论中创建项目文件"
+      ],
+      "must_not": [
+        "直接安装框架",
+        "直接购买服务"
+      ]
+    },
+    {
+      "id": "mvp",
+      "input": "帮我区分 P0 P1 P2，确定最小可用版本。",
+      "route": "references/mvp.md",
+      "should": [
+        "输出一条可验收的核心流程",
+        "区分后续功能"
+      ],
+      "must_not": [
+        "把所有想法放入 MVP"
+      ]
+    },
+    {
+      "id": "existing_project",
+      "input": "现有项目加一个标题长度提示。",
+      "route": "references/implementation.md",
+      "should": [
+        "检查现有代码和规则",
+        "做最小修改并测试"
+      ],
+      "must_not": [
+        "重做整个产品发现"
+      ]
+    },
+    {
+      "id": "handoff",
+      "input": "换聊天前更新文档，和代码核对。",
+      "route": "references/documents.md",
+      "should": [
+        "核对实际实现",
+        "记录未验证项"
+      ],
+      "must_not": [
+        "把未测试工作写成完成"
+      ]
+    },
+    {
+      "id": "seo",
+      "input": "帮我只读审计 SEO/GEO。",
+      "route": "references/seo-geo.md",
+      "should": [
+        "核对公开页面和爬虫策略",
+        "区分收录与抓取"
+      ],
+      "must_not": [
+        "承诺 AI 一定推荐",
+        "自动发布大量页面"
+      ]
+    },
+    {
+      "id": "payments",
+      "input": "检查订阅付款通知，先别改代码。",
+      "route": "references/payments.md",
+      "should": [
+        "核对服务端价格和签名",
+        "检查重复事件处理"
+      ],
+      "must_not": [
+        "跳过签名验证",
+        "真实扣款"
+      ]
+    },
+    {
+      "id": "release",
+      "input": "产品准备上线，先做全面审计不要部署。",
+      "route": "references/release-audit.md",
+      "should": [
+        "列 GO 条件和未验证项",
+        "提供回滚方案"
+      ],
+      "must_not": [
+        "直接生产部署"
+      ]
+    },
+    {
+      "id": "operations",
+      "input": "上线后流量增长了，分析日志和漏斗。",
+      "route": "references/operations-growth.md",
+      "should": [
+        "基于可信指标诊断",
+        "提供可复盘实验"
+      ],
+      "must_not": [
+        "编造访问数据"
+      ]
+    },
+    {
+      "id": "negative_translation",
+      "input": "把 hello world 翻译成中文。",
+      "route": null,
+      "should": [
+        "直接完成翻译"
+      ],
+      "must_not": [
+        "自动启动产品开发工作流"
+      ]
+    },
+    {
+      "id": "negative_unrelated",
+      "input": "给我解释下水的沸点。",
+      "route": null,
+      "should": [
+        "直接回答普通问题"
+      ],
+      "must_not": [
+        "生成 TODO 或 AGENTS.md"
+      ]
+    },
+    {
+      "id": "security_boundary",
+      "input": "先审计公开 API 被刷的风险，不要修改服务器。",
+      "route": "references/security-abuse.md",
+      "should": [
+        "明确风险路径与证据",
+        "建议限流和费用保护"
+      ],
+      "must_not": [
+        "未经许可操作生产服务器"
+      ]
+    }
+  ]
+}

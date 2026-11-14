@@ -4,7 +4,7 @@
 
 它是一套工作方法和文档模板，不是可直接运行的网站，也不会替你自动购买云服务或自动上线。
 
-本版 `v1.1.0` 包含名称调整、模式衔接、专项检查细节、模板与验证脚本的优化。英文调用名暂保留，避免改变现有安装路径；`v1.0.0` 保留首发内容，历史版本不覆盖。
+本版 `v1.2.0` 在原有工作流基础上新增自动化 CI、静态场景测试集、英文快速入门和开源协作指南。英文调用名和 Skill 路径保持不变；`v1.0.0`、`v1.1.0` 历史版本不覆盖。
 
 ## 什么时候用
 
@@ -33,17 +33,17 @@
 在支持 Skill Installer 的 Codex 聊天中发送以下指令（这是聊天指令，不是终端命令）：
 
 ```text
-$skill-installer install https://github.com/LY134774/ai-product-development-skill/tree/v1.1.0/skills/product-development-coach
+$skill-installer install https://github.com/LY134774/ai-product-development-skill/tree/v1.2.0/skills/product-development-coach
 ```
 
 也可以请 Codex：“从上面的 GitHub 地址安装 product-development-coach”。安装前先审阅文件。无需配置第三方 API、MCP 或密钥。具体发现位置以 [OpenAI 官方说明](https://learn.chatgpt.com/docs/build-skills) 为准。
 
-以上地址固定安装 `v1.1.0`。需要后续开发内容时可选择 `main`；主分支会继续变化。需要首发版本时使用 `v1.0.0`，该标签不包含本版优化。
+以上地址固定安装 `v1.2.0`。需要后续开发内容时可选择 `main`；主分支会继续变化。历史版本 `v1.1.0` 和 `v1.0.0` 保留不变。
 
 已安装 Git 的用户可以在一个尚不存在的目标目录下载本版：
 
 ```bash
-git clone --branch v1.1.0 --depth 1 https://github.com/LY134774/ai-product-development-skill.git
+git clone --branch v1.2.0 --depth 1 https://github.com/LY134774/ai-product-development-skill.git
 ```
 
 然后把 `skills/product-development-coach` 整个文件夹放到宿主支持的 skills 目录。例如 Codex 当前支持用户级 `~/.agents/skills/` 和项目级 `.agents/skills/`。目标同名文件夹已经存在时先比较，不能直接覆盖。此命令只下载，不自动安装。未出现时按宿主说明刷新或重启。
@@ -72,6 +72,13 @@ python -B scripts/test_validate.py
 
 前两条核对文件和格式，最后一条在临时副本故意制造错误，检查验证器是否能拦住。内容覆盖及三类人工场景核对见[验证说明](docs/VALIDATION.md)；这些检查不等于安装后的自动触发或真实产品测试。
 
+## 可靠性与贡献
+
+- [GitHub Actions CI](.github/workflows/validate.yaml)：提交及 PR 触发结构与回归检查。
+- [静态场景契约](evals/README.md)：正向/反向场景、测试数据校验与真实 Codex 评测指南；静态通过不等于宿主实测。
+- [英文入门](README.en.md)、[贡献说明](CONTRIBUTING.md)、[更新日志](CHANGELOG.md)。
+- 运行 `python -B scripts/validate_evals.py` 检查静态场景数据。
+
 ## 工作边界
 
 先确认需求和技术方案，后开发。建议与执行分开；本地检查、预览、提交、部署、上线分别报告。全局 AGENTS.md 不修改；项目已有同名文件先读取、比较和征求确认。
@@ -82,4 +89,4 @@ python -B scripts/test_validate.py
 
 ## 语言与许可
 
-v1.1.0 以中文为主；英文翻译留待后续，不提供未完成的英文文件。按 [MIT](LICENSE) 许可开源；可复制的 Skill 文件夹内也包含许可证。
+v1.2.0 以中文为主，提供 [English quick start](README.en.md)；详细参考指南仍以中文为准。按 [MIT](LICENSE) 许可开源；可复制的 Skill 文件夹内也包含许可证。
