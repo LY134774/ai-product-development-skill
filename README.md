@@ -4,7 +4,7 @@
 
 它是一套工作方法和文档模板，不是可直接运行的网站，也不会替你自动购买云服务或自动上线。
 
-当前主分支包含名称调整、模式衔接、专项检查细节、模板与验证脚本的后续优化，尚未为这些更新创建新版 Release。`v1.0.0` 标签保留首发内容；获取本轮优化请选择主分支。英文调用名暂保留，避免改变现有安装路径。
+本版 `v1.1.0` 包含名称调整、模式衔接、专项检查细节、模板与验证脚本的优化。英文调用名暂保留，避免改变现有安装路径；`v1.0.0` 保留首发内容，历史版本不覆盖。
 
 ## 什么时候用
 
@@ -33,17 +33,17 @@
 在支持 Skill Installer 的 Codex 聊天中发送以下指令（这是聊天指令，不是终端命令）：
 
 ```text
-$skill-installer install https://github.com/LY134774/ai-product-development-skill/tree/main/skills/product-development-coach
+$skill-installer install https://github.com/LY134774/ai-product-development-skill/tree/v1.1.0/skills/product-development-coach
 ```
 
 也可以请 Codex：“从上面的 GitHub 地址安装 product-development-coach”。安装前先审阅文件。无需配置第三方 API、MCP 或密钥。具体发现位置以 [OpenAI 官方说明](https://learn.chatgpt.com/docs/build-skills) 为准。
 
-以上地址安装主分支最新内容，主分支会继续变化；需要固定本次内容时可将 `main` 替换成目标提交 SHA。需要首发版本时使用 `v1.0.0`，该标签不包含后续优化。
+以上地址固定安装 `v1.1.0`。需要后续开发内容时可选择 `main`；主分支会继续变化。需要首发版本时使用 `v1.0.0`，该标签不包含本版优化。
 
-已安装 Git 的用户可以在一个尚不存在的目标目录下载主分支：
+已安装 Git 的用户可以在一个尚不存在的目标目录下载本版：
 
 ```bash
-git clone --branch main --depth 1 https://github.com/LY134774/ai-product-development-skill.git
+git clone --branch v1.1.0 --depth 1 https://github.com/LY134774/ai-product-development-skill.git
 ```
 
 然后把 `skills/product-development-coach` 整个文件夹放到宿主支持的 skills 目录。例如 Codex 当前支持用户级 `~/.agents/skills/` 和项目级 `.agents/skills/`。目标同名文件夹已经存在时先比较，不能直接覆盖。此命令只下载，不自动安装。未出现时按宿主说明刷新或重启。
@@ -82,4 +82,4 @@ python -B scripts/test_validate.py
 
 ## 语言与许可
 
-v1.0.0 以中文为主；英文翻译留待后续，不提供未完成的英文文件。按 [MIT](LICENSE) 许可开源；可复制的 Skill 文件夹内也包含许可证。
+v1.1.0 以中文为主；英文翻译留待后续，不提供未完成的英文文件。按 [MIT](LICENSE) 许可开源；可复制的 Skill 文件夹内也包含许可证。

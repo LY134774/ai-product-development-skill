@@ -3,7 +3,7 @@ name: product-development-coach
 description: "帮助个人开发者和小团队分阶段完成产品发现、MVP、技术架构、项目文档、AI 辅助开发、SEO/GEO、统计、缓存部署、安全防刷、支付审计和运营增长。用户要做新产品、规划 MVP、初始化项目文档、接手或交接项目、评估基础设施、做专项或上线审计时使用；对明确的小修复只运行相关阶段，不重启全部产品规划。普通闲聊、翻译和无关任务不触发。"
 license: MIT
 metadata:
-  version: "1.0.0"
+  version: "1.1.0"
   language: "zh-CN"
 ---
 
