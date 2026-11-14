@@ -1,0 +1,43 @@
+name: Publish validated v1.2.0 release
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  publish:
+    if: github.ref == 'refs/heads/main' && startsWith(github.event.head_commit.message, 'release: v1.2.0')
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write
+    steps:
+      - name: Check out published commit
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Validate skill and test fixtures
+        run: |
+          python -B scripts/validate.py
+          python -B -O scripts/validate.py
+          python -B scripts/test_validate.py
+          python -B scripts/validate_evals.py
+      - name: Publish tag and GitHub Release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if gh release view v1.2.0 >/dev/null 2>&1; then
+            echo 'v1.2.0 release already exists; refusing to rewrite it.'
+            exit 0
+          fi
+          gh release create v1.2.0 \
+            --target "${GITHUB_SHA}" \
+            --title "v1.2.0 · 可靠性与开源协作增强" \
+            --notes-file docs/RELEASE_NOTES_v1.2.0.md
