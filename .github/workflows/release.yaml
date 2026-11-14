@@ -9,7 +9,7 @@ permissions:
 
 jobs:
   publish:
-    if: github.ref == 'refs/heads/main' && startsWith(github.event.head_commit.message, 'release: v1.2.0')
+    if: "github.ref == 'refs/heads/main' && startsWith(github.event.head_commit.message, 'release: v1.2.0')"
     runs-on: ubuntu-latest
     timeout-minutes: 10
     permissions:
