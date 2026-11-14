@@ -1,0 +1,6 @@
+interface:
+  display_name: "AI Product Builder ��Ʒ��������"
+  short_description: "������� MVP ����������Ŀ���ӡ������������Ӫ���������ķֽ׶ν���"
+  default_prompt: "��ʹ�� $product-development-coach �ж��ҵ�ǰ�Ĳ�Ʒ�׶Σ�������������������֤�Ľ����"
+policy:
+  allow_implicit_invocation: true
