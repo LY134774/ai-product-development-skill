@@ -134,6 +134,47 @@
       "must_not": [
         "未经许可操作生产服务器"
       ]
+    },
+    {
+      "id": "seo_early_planning",
+      "input": "我想做面向中文用户的 AI 工具，希望通过搜索和 AI 搜索获客，第一版功能还没确定。",
+      "route": "references/discovery.md",
+      "should": [
+        "在需求阶段明确 SEO/GEO 适用性、用户问题和公开边界",
+        "把适用要求交给 MVP、架构和获准开发任务，带上验收方式"
+      ],
+      "must_not": [
+        "等上线审计才首次安排 SEO/GEO",
+        "未确认就创建页面或批量内容系统"
+      ]
+    },
+    {
+      "id": "seo_internal_mvp",
+      "input": "确定一个公司内部工具的 MVP，所有页面仅员工登录访问，不需要搜索获客。",
+      "route": "references/mvp.md",
+      "should": [
+        "记录 SEO/GEO 获客配置不适用的理由",
+        "保留真实访问权限保护，按核心流程规划 MVP"
+      ],
+      "must_not": [
+        "强制增加公开内容页、Sitemap 或多语言",
+        "把 robots.txt 当成登录权限保护"
+      ]
+    },
+    {
+      "id": "seo_conditional_implementation",
+      "input": "已确认公开内容站需要 SEO，文章经常增删，只有中文版，已有有效 Microdata。请核对 Sitemap、多语言关联和结构化数据方案，先别改。",
+      "route": "references/seo-geo.md",
+      "should": [
+        "优先评估现有框架或 CMS 的 Sitemap 生成及增改删更新验证",
+        "单语言站点将 hreflang 标不适用",
+        "核对现有结构化数据，不为使用 JSON-LD 强制替换有效格式"
+      ],
+      "must_not": [
+        "新增语言或额外定时平台",
+        "编造评价、价格或承诺富结果",
+        "未经授权修改站点或提交平台"
+      ]
     }
   ]
 }
